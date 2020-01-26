@@ -16,6 +16,12 @@ sys.stdin=f
 ##################################
 # %%
 # 以下ペースト可
-num_list = [int(item) for item in input().split()]
-print('C', num_list)
+N, k = [int(item) for item in input().split()]
+H_list = [int(item) for item in input().split()]
+H_list.sort()
 
+if N <= k:
+    print(0)
+else:
+    mob_num = N - k
+    print(sum(H_list[:mob_num]))

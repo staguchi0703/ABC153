@@ -16,6 +16,13 @@ sys.stdin=f
 ##################################
 # %%
 # 以下ペースト可
-num_list = [int(item) for item in input().split()]
-print('B', num_list)
+H, N = [int(item) for item in input().split()]
+A_list = [int(item) for item in input().split()]
+
+skill_sum = sum(A_list)
+
+if H > skill_sum:
+    print('No')
+else:
+    print('Yes')
 

@@ -16,6 +16,11 @@ sys.stdin=f
 ##################################
 # %%
 # 以下ペースト可
-num_list = [int(item) for item in input().split()]
-print('D',num_list)
+H = int(input())
+cnt = 0
+while H > 1:
+    H //= 2
+    cnt += 1
+
+print(2**cnt*2-1)
 

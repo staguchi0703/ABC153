@@ -16,6 +16,28 @@ sys.stdin=f
 ##################################
 # %%
 # 以下ペースト可
-num_list = [int(item) for item in input().split()]
-print('E', num_list)
+H, N = [int(item) for item in input().split()]
+magic_list = [[int(item) for item in input().split()] for _ in range(N)]
+# print('E', magic_list)
+
+new_list = []
+for a, m in magic_list:
+    new_list.append([a, m, a/m])
+
+new_list.sort(key=lambda x:x[2], reverse=True)
+# print(new_list)
+
+dp = [[1 if j == 0 else 0 for j in range(H+1)] for _ in range(N+1)]
+
+for i in range(N):
+    for j in range(H+1):
+        if magic_list[i][0] + j > H:
+            dp[i+1][j] = dp[i][j]
+        else:
+            dp[i+1][j+magic_list[i][0]] = dp[i+1][j] + magic_list[i][1]
+
+print(max(dp[N]))
+
+
+
 
